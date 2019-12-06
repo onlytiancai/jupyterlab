@@ -248,7 +248,7 @@ export namespace Commands {
       },
       isEnabled,
       isToggled: () => config.lineNumbers,
-      label: 'Line Numbers'
+      label: '行号'
     });
   }
 
@@ -277,7 +277,7 @@ export namespace Commands {
         const lineWrap = (args['mode'] as wrappingMode) || 'off';
         return config.lineWrap === lineWrap;
       },
-      label: 'Word Wrap'
+      label: '自动换行'
     });
   }
 
@@ -326,7 +326,7 @@ export namespace Commands {
             console.error(`Failed to set ${id}: ${reason.message}`);
           });
       },
-      label: 'Match Brackets',
+      label: '括号匹配',
       isEnabled,
       isToggled: () => config.matchBrackets
     });
@@ -349,7 +349,7 @@ export namespace Commands {
             console.error(`Failed to set ${id}: ${reason.message}`);
           });
       },
-      label: 'Auto Close Brackets for Text Editor',
+      label: '自动闭合括号',
       isToggled: () => config.autoClosingBrackets
     });
   }
@@ -373,7 +373,7 @@ export namespace Commands {
         return getCreateConsoleFunction(commands)(widget, args);
       },
       isEnabled,
-      label: 'Create Console for Editor'
+      label: '创建编辑器控制台'
     });
   }
 
@@ -443,7 +443,7 @@ export namespace Commands {
         }
       },
       isEnabled,
-      label: 'Run Code'
+      label: '运行代码'
     });
   }
 
@@ -487,7 +487,7 @@ export namespace Commands {
         }
       },
       isEnabled,
-      label: 'Run All Code'
+      label: '运行所有代码'
     });
   }
 
@@ -518,7 +518,7 @@ export namespace Commands {
           (widget && PathExt.extname(widget.context.path) === '.md') || false
         );
       },
-      label: 'Show Markdown Preview'
+      label: '显示 Markdown 预览'
     });
   }
 
@@ -552,7 +552,7 @@ export namespace Commands {
     browserFactory: IFileBrowserFactory
   ) {
     commands.addCommand(CommandIDs.createNew, {
-      label: args => (args['isPalette'] ? 'New Text File' : 'Text File'),
+      label: args => (args['isPalette'] ? '新建文本文件' : '文本文件'),
       caption: 'Create a new text file',
       iconClass: args => (args['isPalette'] ? '' : EDITOR_ICON_CLASS),
       execute: args => {
@@ -571,7 +571,7 @@ export namespace Commands {
   ) {
     commands.addCommand(CommandIDs.createNewMarkdown, {
       label: args =>
-        args['isPalette'] ? 'New Markdown File' : 'Markdown File',
+        args['isPalette'] ? '新建 Markdown 文件' : 'Markdown 文件',
       caption: 'Create a new markdown file',
       iconClass: args => (args['isPalette'] ? '' : MARKDOWN_ICON_CLASS),
       execute: args => {
@@ -729,7 +729,7 @@ export namespace Commands {
     commands: CommandRegistry
   ) {
     const tabMenu = new Menu({ commands });
-    tabMenu.title.label = 'Text Editor Indentation';
+    tabMenu.title.label = '文本编辑器缩进';
     let args: JSONObject = {
       insertSpaces: false,
       size: 4,
@@ -751,11 +751,11 @@ export namespace Commands {
       [
         {
           command: CommandIDs.changeFontSize,
-          args: { name: 'Increase Text Editor Font Size', delta: +1 }
+          args: { name: '增加文本编辑器字号', delta: +1 }
         },
         {
           command: CommandIDs.changeFontSize,
-          args: { name: 'Decrease Text Editor Font Size', delta: -1 }
+          args: { name: '减小文本编辑器字号', delta: -1 }
         },
         { type: 'submenu', submenu: tabMenu },
         { command: CommandIDs.autoClosingBrackets }

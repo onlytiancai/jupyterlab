@@ -311,8 +311,9 @@
 }
 
 .jp-JupyterIcon {
-  background-image: var(--jp-image-jupyter);
-  background-size: 16px;
+  background: #602f8e
+    url(http://demo.techaction.cn:8001/assets/uploads/img/2019/04/08/20190408SZEJARN81H.png);
+  background-size: 100px;
   margin: 2px;
   margin-left: 8px;
   margin-right: 0px;
@@ -341,7 +342,7 @@
   background-position: 0 2px;
   background-repeat: no-repeat;
   margin-right: 2px;
-  width: 20px;
+  width: 100px;
 }
 
 .jp-MoreHorizIcon {

@@ -92,7 +92,7 @@ const extension: JupyterFrontEndPlugin<ISearchProviderRegistry> = {
     const nextCommand: string = 'documentsearch:highlightNext';
     const prevCommand: string = 'documentsearch:highlightPrevious';
     app.commands.addCommand(startCommand, {
-      label: 'Find…',
+      label: '查找…',
       isEnabled: () => {
         const currentWidget = app.shell.currentWidget;
         if (!currentWidget) {
@@ -129,7 +129,7 @@ const extension: JupyterFrontEndPlugin<ISearchProviderRegistry> = {
     });
 
     app.commands.addCommand(nextCommand, {
-      label: 'Find Next',
+      label: '查找下一个',
       isEnabled: () => {
         const currentWidget = app.shell.currentWidget;
         if (!currentWidget) {
@@ -153,7 +153,7 @@ const extension: JupyterFrontEndPlugin<ISearchProviderRegistry> = {
     });
 
     app.commands.addCommand(prevCommand, {
-      label: 'Find Previous',
+      label: '查找上一个',
       isEnabled: () => {
         const currentWidget = app.shell.currentWidget;
         if (!currentWidget) {

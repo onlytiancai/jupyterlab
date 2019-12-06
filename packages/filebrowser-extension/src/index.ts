@@ -239,7 +239,7 @@ function activateFactory(
       onClick: () => {
         return Private.createLauncher(commands, widget);
       },
-      tooltip: 'New Launcher'
+      tooltip: '新建启动器'
     });
     widget.toolbar.insertItem(0, 'launch', launcher);
 
@@ -371,7 +371,7 @@ function activateShareFile(
       tracker.currentWidget &&
       toArray(tracker.currentWidget.selectedItems()).length === 1,
     iconClass: 'jp-MaterialIcon jp-LinkIcon',
-    label: 'Copy Shareable Link'
+    label: '复制共享链接'
   });
 }
 
@@ -399,7 +399,7 @@ function addCommands(
       }
     },
     iconClass: 'jp-MaterialIcon jp-CloseIcon',
-    label: 'Delete',
+    label: '删除',
     mnemonic: 0
   });
 
@@ -412,7 +412,7 @@ function addCommands(
       }
     },
     iconClass: 'jp-MaterialIcon jp-CopyIcon',
-    label: 'Copy',
+    label: '复制',
     mnemonic: 0
   });
 
@@ -425,7 +425,7 @@ function addCommands(
       }
     },
     iconClass: 'jp-MaterialIcon jp-CutIcon',
-    label: 'Cut'
+    label: '剪切'
   });
 
   commands.addCommand(CommandIDs.download, {
@@ -437,7 +437,7 @@ function addCommands(
       }
     },
     iconClass: 'jp-MaterialIcon jp-DownloadIcon',
-    label: 'Download'
+    label: '下载'
   });
 
   commands.addCommand(CommandIDs.duplicate, {
@@ -449,7 +449,7 @@ function addCommands(
       }
     },
     iconClass: 'jp-MaterialIcon jp-CopyIcon',
-    label: 'Duplicate'
+    label: '副本'
   });
 
   commands.addCommand(CommandIDs.hideBrowser, {
@@ -483,13 +483,13 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.openPath, {
-    label: args => (args.path ? `Open ${args.path}` : 'Open from Path…'),
+    label: args => (args.path ? `打开${args.path}` : '从路径打开…'),
     caption: args => (args.path ? `Open ${args.path}` : 'Open from path'),
     execute: async ({ path }: { path?: string }) => {
       if (!path) {
         path = (
           await InputDialog.getText({
-            label: 'Path',
+            label: '路径',
             placeholder: '/path/relative/to/jlab/root',
             title: 'Open Path',
             okLabel: 'Open'
@@ -599,7 +599,7 @@ function addCommands(
       );
     },
     iconClass: 'jp-MaterialIcon jp-AddIcon',
-    label: 'Open in New Browser Tab',
+    label: '打开新浏览器标签',
     mnemonic: 0
   });
 
@@ -617,7 +617,7 @@ function addCommands(
         });
     },
     iconClass: 'jp-MaterialIcon jp-CopyIcon',
-    label: 'Copy Download Link',
+    label: '复制下载链接',
     mnemonic: 0
   });
 
@@ -630,7 +630,7 @@ function addCommands(
       }
     },
     iconClass: 'jp-MaterialIcon jp-PasteIcon',
-    label: 'Paste',
+    label: '粘贴',
     mnemonic: 0
   });
 
@@ -643,7 +643,7 @@ function addCommands(
       }
     },
     iconClass: 'jp-MaterialIcon jp-NewFolderIcon',
-    label: 'New Folder'
+    label: '新建目录'
   });
 
   commands.addCommand(CommandIDs.createNewFile, {
@@ -658,7 +658,7 @@ function addCommands(
       });
     },
     iconClass: 'jp-MaterialIcon jp-TextEditorIcon',
-    label: 'New File'
+    label: '新建文件'
   });
 
   commands.addCommand(CommandIDs.createNewMarkdownFile, {
@@ -673,7 +673,7 @@ function addCommands(
       });
     },
     iconClass: 'jp-MaterialIcon jp-MarkdownIcon',
-    label: 'New Markdown File'
+    label: '新建 Markdown 文件'
   });
 
   commands.addCommand(CommandIDs.rename, {
@@ -685,7 +685,7 @@ function addCommands(
       }
     },
     iconClass: 'jp-MaterialIcon jp-EditIcon',
-    label: 'Rename',
+    label: '重命名',
     mnemonic: 0
   });
 
@@ -706,7 +706,7 @@ function addCommands(
       tracker.currentWidget &&
       tracker.currentWidget.selectedItems().next !== undefined,
     iconClass: 'jp-MaterialIcon jp-FileIcon',
-    label: 'Copy Path'
+    label: '复制路径'
   });
 
   commands.addCommand(CommandIDs.showBrowser, {
@@ -748,7 +748,7 @@ function addCommands(
       }
     },
     iconClass: 'jp-MaterialIcon jp-StopIcon',
-    label: 'Shut Down Kernel'
+    label: '停止核心'
   });
 
   commands.addCommand(CommandIDs.toggleBrowser, {
@@ -762,12 +762,12 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.createLauncher, {
-    label: 'New Launcher',
+    label: '新建启动器',
     execute: () => Private.createLauncher(commands, browser)
   });
 
   commands.addCommand(CommandIDs.toggleNavigateToCurrentDirectory, {
-    label: 'Show Active File in File Browser',
+    label: '在文件管理器里显示激活的文件',
     isToggled: () => browser.navigateToCurrentDirectory,
     execute: () => {
       const value = !browser.navigateToCurrentDirectory;
@@ -902,7 +902,7 @@ function addCommands(
   });
 
   const openWith = new OpenWithMenu({ commands });
-  openWith.title.label = 'Open With';
+  openWith.title.label = '打开方式';
   app.contextMenu.addItem({
     type: 'submenu',
     submenu: openWith,

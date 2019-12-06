@@ -689,7 +689,7 @@ function activateNotebookHandler(
         return services.specs.kernelspecs[kernelName].display_name;
       }
       if (args['isPalette']) {
-        return 'New Notebook';
+        return '新建 Notebook';
       }
       return 'Notebook';
     },
@@ -921,7 +921,7 @@ function addCommands(
   }
 
   commands.addCommand(CommandIDs.runAndAdvance, {
-    label: 'Run Selected Cells',
+    label: '运行选中的Cells',
     execute: args => {
       const current = getCurrent(args);
 
@@ -934,7 +934,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.run, {
-    label: "Run Selected Cells and Don't Advance",
+    label: '运行选中的 Cell 并且不进入下一步',
     execute: args => {
       const current = getCurrent(args);
 
@@ -947,7 +947,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.runAndInsert, {
-    label: 'Run Selected Cells and Insert Below',
+    label: '运行选中的 Cell 并且在下发插入',
     execute: args => {
       const current = getCurrent(args);
 
@@ -960,7 +960,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.runInConsole, {
-    label: 'Run Selected Text or Current Line in Console',
+    label: '在控制台中运行选定文本或选中当前行',
     execute: async args => {
       // Default to not activating the notebook (thereby putting the notebook
       // into command mode)
@@ -1077,7 +1077,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.runAll, {
-    label: 'Run All Cells',
+    label: '运行所有 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1090,7 +1090,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.runAllAbove, {
-    label: 'Run All Above Selected Cell',
+    label: '运行选中及上方所有 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1110,7 +1110,7 @@ function addCommands(
     }
   });
   commands.addCommand(CommandIDs.runAllBelow, {
-    label: 'Run Selected Cell and All Below',
+    label: '运行选中及下面的所有 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1131,7 +1131,7 @@ function addCommands(
     }
   });
   commands.addCommand(CommandIDs.renderAllMarkdown, {
-    label: 'Render All Markdown Cells',
+    label: '重绘所有 Markdown Cell',
     execute: args => {
       const current = getCurrent(args);
       if (current) {
@@ -1142,7 +1142,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.restart, {
-    label: 'Restart Kernel…',
+    label: '重启核心...',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1153,7 +1153,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.closeAndShutdown, {
-    label: 'Close and Shut Down',
+    label: '关闭并停止',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1178,7 +1178,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.trust, {
-    label: () => 'Trust Notebook',
+    label: () => '信任 Notebook',
     execute: args => {
       const current = getCurrent(args);
       if (current) {
@@ -1192,7 +1192,7 @@ function addCommands(
     label: args => {
       const formatLabel = args['label'] as string;
 
-      return (args['isPalette'] ? 'Export Notebook to ' : '') + formatLabel;
+      return (args['isPalette'] ? '导出为' : '') + formatLabel;
     },
     execute: args => {
       const current = getCurrent(args);
@@ -1224,7 +1224,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.restartClear, {
-    label: 'Restart Kernel and Clear All Outputs…',
+    label: '重启核心并清空所有输出...',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1239,7 +1239,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.restartRunAll, {
-    label: 'Restart Kernel and Run All Cells…',
+    label: '重启核心并运行所有 Cell...',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1257,7 +1257,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.clearAllOutputs, {
-    label: 'Clear All Outputs',
+    label: '清空所有输出',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1268,7 +1268,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.clearOutputs, {
-    label: 'Clear Outputs',
+    label: '清空输出',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1279,7 +1279,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.interrupt, {
-    label: 'Interrupt Kernel',
+    label: '中止内核',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1296,7 +1296,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.toCode, {
-    label: 'Change to Code Cell Type',
+    label: '切换到代码 Cell 类型',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1307,7 +1307,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.toMarkdown, {
-    label: 'Change to Markdown Cell Type',
+    label: '切换到 Markdown Cell 类型',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1318,7 +1318,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.toRaw, {
-    label: 'Change to Raw Cell Type',
+    label: '切换到原始 Cell 类型',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1329,7 +1329,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.cut, {
-    label: 'Cut Cells',
+    label: '剪切 Cells',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1340,7 +1340,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.copy, {
-    label: 'Copy Cells',
+    label: '复制 Cells',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1351,7 +1351,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.pasteBelow, {
-    label: 'Paste Cells Below',
+    label: '在上方粘贴 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1362,7 +1362,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.pasteAbove, {
-    label: 'Paste Cells Above',
+    label: '在上方粘贴 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1373,7 +1373,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.pasteAndReplace, {
-    label: 'Paste Cells and Replace',
+    label: '粘贴并替换 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1384,7 +1384,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.deleteCell, {
-    label: 'Delete Cells',
+    label: '删除 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1395,7 +1395,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.split, {
-    label: 'Split Cell',
+    label: '分割 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1406,7 +1406,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.merge, {
-    label: 'Merge Selected Cells',
+    label: '合并选中的Cells',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1417,7 +1417,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.insertAbove, {
-    label: 'Insert Cell Above',
+    label: '上方插入 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1428,7 +1428,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.insertBelow, {
-    label: 'Insert Cell Below',
+    label: '下方插入 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1439,7 +1439,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.selectAbove, {
-    label: 'Select Cell Above',
+    label: '选中上方的 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1450,7 +1450,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.selectBelow, {
-    label: 'Select Cell Below',
+    label: '选中下方的 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1461,7 +1461,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.extendAbove, {
-    label: 'Extend Selection Above',
+    label: '上方扩展选区',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1472,7 +1472,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.extendTop, {
-    label: 'Extend Selection to Top',
+    label: '扩展选取到顶部',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1483,7 +1483,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.extendBelow, {
-    label: 'Extend Selection Below',
+    label: '下方扩展选取',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1494,7 +1494,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.extendBottom, {
-    label: 'Extend Selection to Bottom',
+    label: '扩展选区到底部',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1505,7 +1505,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.selectAll, {
-    label: 'Select All Cells',
+    label: '选中所有 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1516,7 +1516,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.deselectAll, {
-    label: 'Deselect All Cells',
+    label: '取消选择所有 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1527,7 +1527,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.moveUp, {
-    label: 'Move Cells Up',
+    label: '上移 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1538,7 +1538,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.moveDown, {
-    label: 'Move Cells Down',
+    label: '下移 Cell',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1549,7 +1549,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.toggleAllLines, {
-    label: 'Toggle All Line Numbers',
+    label: '切换所有行号',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1560,7 +1560,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.commandMode, {
-    label: 'Enter Command Mode',
+    label: '进入命令模式',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1571,7 +1571,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.editMode, {
-    label: 'Enter Edit Mode',
+    label: '进入编辑模式',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1582,7 +1582,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.undoCellAction, {
-    label: 'Undo Cell Operation',
+    label: '撤销 Cell 操作',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1593,7 +1593,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.redoCellAction, {
-    label: 'Redo Cell Operation',
+    label: '重做 Cell 操作',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1604,7 +1604,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.changeKernel, {
-    label: 'Change Kernel…',
+    label: '切换核心...',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1615,7 +1615,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.reconnectToKernel, {
-    label: 'Reconnect To Kernel',
+    label: '重新连接到核心',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1632,7 +1632,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.createOutputView, {
-    label: 'Create New View for Output',
+    label: '新建输出视图',
     execute: async args => {
       let cell: CodeCell | undefined;
       let current: NotebookPanel | undefined;
@@ -1684,7 +1684,7 @@ function addCommands(
     isEnabled: isEnabledAndSingleSelected
   });
   commands.addCommand(CommandIDs.createConsole, {
-    label: 'New Console for Notebook',
+    label: '新建 Notebook 控制台',
     execute: args => {
       const current = getCurrent({ ...args, activate: false });
 
@@ -1701,7 +1701,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.markdown1, {
-    label: 'Change to Heading 1',
+    label: '切换为一级标题',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1712,7 +1712,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.markdown2, {
-    label: 'Change to Heading 2',
+    label: '切换为二级标题',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1723,7 +1723,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.markdown3, {
-    label: 'Change to Heading 3',
+    label: '切换为三级标题',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1734,7 +1734,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.markdown4, {
-    label: 'Change to Heading 4',
+    label: '切换为四级标题',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1745,7 +1745,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.markdown5, {
-    label: 'Change to Heading 5',
+    label: '切换为五级标题',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1756,7 +1756,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.markdown6, {
-    label: 'Change to Heading 6',
+    label: '切换为六级标题',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1767,7 +1767,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.hideCode, {
-    label: 'Collapse Selected Code',
+    label: '折叠选中代码',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1778,7 +1778,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.showCode, {
-    label: 'Expand Selected Code',
+    label: '展开选中代码',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1789,7 +1789,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.hideAllCode, {
-    label: 'Collapse All Code',
+    label: '折叠所有代码',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1800,7 +1800,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.showAllCode, {
-    label: 'Expand All Code',
+    label: '展开所有代码',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1811,7 +1811,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.hideOutput, {
-    label: 'Collapse Selected Outputs',
+    label: '折叠选中输出',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1822,7 +1822,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.showOutput, {
-    label: 'Expand Selected Outputs',
+    label: '展开选中输出',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1833,7 +1833,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.hideAllOutputs, {
-    label: 'Collapse All Outputs',
+    label: '折叠所有输出',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1844,7 +1844,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.showAllOutputs, {
-    label: 'Expand All Outputs',
+    label: '展开所有输出',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1855,7 +1855,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.enableOutputScrolling, {
-    label: 'Enable Scrolling for Outputs',
+    label: '启用输出滚动条',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1866,7 +1866,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.disableOutputScrolling, {
-    label: 'Disable Scrolling for Outputs',
+    label: '禁用输出滚动条',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1877,7 +1877,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.selectLastRunCell, {
-    label: 'Select current running or last run cell',
+    label: '选中当前或上次运行的 Cell',
     execute: args => {
       const current = getCurrent(args);
 

@@ -185,7 +185,7 @@ function activate(
   if (mainMenu) {
     // Add "Terminal Theme" menu below "JupyterLab Themes" menu.
     const themeMenu = new Menu({ commands });
-    themeMenu.title.label = 'Terminal Theme';
+    themeMenu.title.label = '终端主题';
     themeMenu.addItem({
       command: CommandIDs.setTheme,
       args: { theme: 'inherit', isPalette: false }
@@ -326,7 +326,7 @@ export function addCommands(
 
   // Add terminal commands.
   commands.addCommand(CommandIDs.createNew, {
-    label: args => (args['isPalette'] ? 'New Terminal' : 'Terminal'),
+    label: args => (args['isPalette'] ? '新建终端' : '终端'),
     caption: 'Start a new terminal session',
     iconClass: args => (args['isPalette'] ? '' : TERMINAL_ICON_CLASS),
     execute: async args => {
@@ -377,7 +377,7 @@ export function addCommands(
   });
 
   commands.addCommand(CommandIDs.refresh, {
-    label: 'Refresh Terminal',
+    label: '刷新终端',
     caption: 'Refresh the current terminal session',
     execute: async () => {
       let current = tracker.currentWidget;
@@ -398,7 +398,7 @@ export function addCommands(
   });
 
   commands.addCommand(CommandIDs.increaseFont, {
-    label: 'Increase Terminal Font Size',
+    label: '增加终端字号',
     execute: async () => {
       let { fontSize } = options;
       if (fontSize < 72) {
@@ -412,7 +412,7 @@ export function addCommands(
   });
 
   commands.addCommand(CommandIDs.decreaseFont, {
-    label: 'Decrease Terminal Font Size',
+    label: '减小终端字号',
     execute: async () => {
       let { fontSize } = options;
       if (fontSize > 9) {
@@ -429,9 +429,7 @@ export function addCommands(
     label: args => {
       const theme = args['theme'] as string;
       const displayName = theme[0].toUpperCase() + theme.substring(1);
-      return args['isPalette']
-        ? `Use ${displayName} Terminal Theme`
-        : displayName;
+      return args['isPalette'] ? `使用${displayName}终端主题` : displayName;
     },
     caption: 'Set the terminal theme',
     isToggled: args => args['theme'] === ITerminal.defaultOptions.theme,

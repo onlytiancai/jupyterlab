@@ -157,39 +157,39 @@ const plugin: JupyterFrontEndPlugin<IMainMenu> = {
     };
 
     commands.addCommand(CommandIDs.openEdit, {
-      label: 'Open Edit Menu',
+      label: '打开编辑菜单',
       execute: () => activateMenu(menu.editMenu.menu)
     });
     commands.addCommand(CommandIDs.openFile, {
-      label: 'Open File Menu',
+      label: '打开文件菜单',
       execute: () => activateMenu(menu.fileMenu.menu)
     });
     commands.addCommand(CommandIDs.openKernel, {
-      label: 'Open Kernel Menu',
+      label: '打开核心菜单',
       execute: () => activateMenu(menu.kernelMenu.menu)
     });
     commands.addCommand(CommandIDs.openRun, {
-      label: 'Open Run Menu',
+      label: '打开运行菜单',
       execute: () => activateMenu(menu.runMenu.menu)
     });
     commands.addCommand(CommandIDs.openView, {
-      label: 'Open View Menu',
+      label: '打开视图菜单',
       execute: () => activateMenu(menu.viewMenu.menu)
     });
     commands.addCommand(CommandIDs.openSettings, {
-      label: 'Open Settings Menu',
+      label: '打开设置菜单',
       execute: () => activateMenu(menu.settingsMenu.menu)
     });
     commands.addCommand(CommandIDs.openTabs, {
-      label: 'Open Tabs Menu',
+      label: '打开标签菜单',
       execute: () => activateMenu(menu.tabsMenu.menu)
     });
     commands.addCommand(CommandIDs.openHelp, {
-      label: 'Open Help Menu',
+      label: '打开帮助菜单',
       execute: () => activateMenu(menu.helpMenu.menu)
     });
     commands.addCommand(CommandIDs.openFirst, {
-      label: 'Open First Menu',
+      label: '打开第一个菜单',
       execute: () => {
         menu.activeIndex = 0;
         menu.openActiveMenu();
@@ -233,12 +233,12 @@ export function createEditMenu(app: JupyterFrontEnd, menu: EditMenu): void {
 
   // Add the undo/redo commands the the Edit menu.
   commands.addCommand(CommandIDs.undo, {
-    label: 'Undo',
+    label: '撤销',
     isEnabled: Private.delegateEnabled(app, menu.undoers, 'undo'),
     execute: Private.delegateExecute(app, menu.undoers, 'undo')
   });
   commands.addCommand(CommandIDs.redo, {
-    label: 'Redo',
+    label: '重做',
     isEnabled: Private.delegateEnabled(app, menu.undoers, 'redo'),
     execute: Private.delegateExecute(app, menu.undoers, 'redo')
   });
@@ -256,7 +256,7 @@ export function createEditMenu(app: JupyterFrontEnd, menu: EditMenu): void {
         menu.clearers,
         'clearCurrent'
       )();
-      return `Clear${enabled ? ` ${noun}` : ''}`;
+      return `清空${enabled ? ` ${noun}` : ''}`;
     },
     isEnabled: Private.delegateEnabled(app, menu.clearers, 'clearCurrent'),
     execute: Private.delegateExecute(app, menu.clearers, 'clearCurrent')
@@ -265,7 +265,7 @@ export function createEditMenu(app: JupyterFrontEnd, menu: EditMenu): void {
     label: () => {
       const noun = Private.delegateLabel(app, menu.clearers, 'pluralNoun');
       const enabled = Private.delegateEnabled(app, menu.clearers, 'clearAll')();
-      return `Clear All${enabled ? ` ${noun}` : ''}`;
+      return `清空所有${enabled ? ` ${noun}` : ''}`;
     },
     isEnabled: Private.delegateEnabled(app, menu.clearers, 'clearAll'),
     execute: Private.delegateExecute(app, menu.clearers, 'clearAll')
@@ -276,7 +276,7 @@ export function createEditMenu(app: JupyterFrontEnd, menu: EditMenu): void {
   );
 
   commands.addCommand(CommandIDs.goToLine, {
-    label: 'Go to Line…',
+    label: '跳转行...',
     isEnabled: Private.delegateEnabled(app, menu.goToLiners, 'goToLine'),
     execute: Private.delegateExecute(app, menu.goToLiners, 'goToLine')
   });
@@ -305,7 +305,7 @@ export function createFileMenu(
         'action'
       );
       const name = Private.delegateLabel(app, menu.closeAndCleaners, 'name');
-      return `Close and ${action ? ` ${action} ${name}` : 'Shutdown'}`;
+      return `关闭并${action ? ` ${action} ${name}` : '停止'}`;
     },
     isEnabled: () =>
       !!app.shell.currentWidget && !!app.shell.currentWidget.title.closable,
@@ -329,7 +329,7 @@ export function createFileMenu(
   commands.addCommand(CommandIDs.createConsole, {
     label: () => {
       const name = Private.delegateLabel(app, menu.consoleCreators, 'name');
-      const label = `New Console for ${name ? name : 'Activity'}`;
+      const label = `新建${name ? name : 'Activity'}控制台`;
       return label;
     },
     isEnabled: Private.delegateEnabled(
@@ -341,16 +341,13 @@ export function createFileMenu(
   });
 
   commands.addCommand(CommandIDs.shutdown, {
-    label: 'Shut Down',
+    label: '停止',
     caption: 'Shut down JupyterLab',
     execute: () => {
       return showDialog({
         title: 'Shutdown confirmation',
         body: 'Please confirm you want to shut down JupyterLab.',
-        buttons: [
-          Dialog.cancelButton(),
-          Dialog.warnButton({ label: 'Shut Down' })
-        ]
+        buttons: [Dialog.cancelButton(), Dialog.warnButton({ label: '停止' })]
       }).then(result => {
         if (result.button.accept) {
           let setting = ServerConnection.makeSettings();
@@ -392,7 +389,7 @@ export function createFileMenu(
   });
 
   commands.addCommand(CommandIDs.logout, {
-    label: 'Log Out',
+    label: '退出',
     caption: 'Log out of JupyterLab',
     execute: () => {
       router.navigate('/logout', { hard: true });
@@ -465,7 +462,7 @@ export function createKernelMenu(app: JupyterFrontEnd, menu: KernelMenu): void {
   const commands = menu.menu.commands;
 
   commands.addCommand(CommandIDs.interruptKernel, {
-    label: 'Interrupt Kernel',
+    label: '终止核心',
     isEnabled: Private.delegateEnabled(
       app,
       menu.kernelUsers,
@@ -475,7 +472,7 @@ export function createKernelMenu(app: JupyterFrontEnd, menu: KernelMenu): void {
   });
 
   commands.addCommand(CommandIDs.restartKernel, {
-    label: 'Restart Kernel…',
+    label: '重启核心...',
     isEnabled: Private.delegateEnabled(app, menu.kernelUsers, 'restartKernel'),
     execute: Private.delegateExecute(app, menu.kernelUsers, 'restartKernel')
   });
@@ -488,7 +485,7 @@ export function createKernelMenu(app: JupyterFrontEnd, menu: KernelMenu): void {
         menu.kernelUsers,
         'restartKernelAndClear'
       )();
-      return `Restart Kernel and Clear${enabled ? ` ${noun}` : ''}…`;
+      return `重启核心并清除${enabled ? ` ${noun}` : ''}…`;
     },
     isEnabled: Private.delegateEnabled(
       app,
@@ -503,19 +500,19 @@ export function createKernelMenu(app: JupyterFrontEnd, menu: KernelMenu): void {
   });
 
   commands.addCommand(CommandIDs.changeKernel, {
-    label: 'Change Kernel…',
+    label: '改变核心...',
     isEnabled: Private.delegateEnabled(app, menu.kernelUsers, 'changeKernel'),
     execute: Private.delegateExecute(app, menu.kernelUsers, 'changeKernel')
   });
 
   commands.addCommand(CommandIDs.shutdownKernel, {
-    label: 'Shut Down Kernel',
+    label: '中止核心',
     isEnabled: Private.delegateEnabled(app, menu.kernelUsers, 'shutdownKernel'),
     execute: Private.delegateExecute(app, menu.kernelUsers, 'shutdownKernel')
   });
 
   commands.addCommand(CommandIDs.shutdownAllKernels, {
-    label: 'Shut Down All Kernels…',
+    label: '中止所有核心',
     isEnabled: () => {
       return app.serviceManager.sessions.running().next() !== undefined;
     },
@@ -525,7 +522,7 @@ export function createKernelMenu(app: JupyterFrontEnd, menu: KernelMenu): void {
         body: 'Shut down all kernels?',
         buttons: [
           Dialog.cancelButton(),
-          Dialog.warnButton({ label: 'Shut Down All' })
+          Dialog.warnButton({ label: '中止所有' })
         ]
       }).then(result => {
         if (result.button.accept) {
@@ -562,7 +559,7 @@ export function createViewMenu(app: JupyterFrontEnd, menu: ViewMenu): void {
   const commands = menu.menu.commands;
 
   commands.addCommand(CommandIDs.lineNumbering, {
-    label: 'Show Line Numbers',
+    label: '显示行号',
     isEnabled: Private.delegateEnabled(
       app,
       menu.editorViewers,
@@ -581,7 +578,7 @@ export function createViewMenu(app: JupyterFrontEnd, menu: ViewMenu): void {
   });
 
   commands.addCommand(CommandIDs.matchBrackets, {
-    label: 'Match Brackets',
+    label: '括号匹配',
     isEnabled: Private.delegateEnabled(
       app,
       menu.editorViewers,
@@ -600,7 +597,7 @@ export function createViewMenu(app: JupyterFrontEnd, menu: ViewMenu): void {
   });
 
   commands.addCommand(CommandIDs.wordWrap, {
-    label: 'Wrap Words',
+    label: '自动换行',
     isEnabled: Private.delegateEnabled(
       app,
       menu.editorViewers,
@@ -651,7 +648,7 @@ export function createRunMenu(app: JupyterFrontEnd, menu: RunMenu): void {
     label: () => {
       const noun = Private.delegateLabel(app, menu.codeRunners, 'noun');
       const enabled = Private.delegateEnabled(app, menu.codeRunners, 'run')();
-      return `Run Selected${enabled ? ` ${noun}` : ''}`;
+      return `运行选中${enabled ? ` ${noun}` : ''}`;
     },
     isEnabled: Private.delegateEnabled(app, menu.codeRunners, 'run'),
     execute: Private.delegateExecute(app, menu.codeRunners, 'run')
@@ -665,7 +662,7 @@ export function createRunMenu(app: JupyterFrontEnd, menu: RunMenu): void {
         menu.codeRunners,
         'runAll'
       )();
-      return `Run All${enabled ? ` ${noun}` : ''}`;
+      return `运行所有${enabled ? ` ${noun}` : ''}`;
     },
     isEnabled: Private.delegateEnabled(app, menu.codeRunners, 'runAll'),
     execute: Private.delegateExecute(app, menu.codeRunners, 'runAll')
@@ -678,7 +675,7 @@ export function createRunMenu(app: JupyterFrontEnd, menu: RunMenu): void {
         menu.codeRunners,
         'restartAndRunAll'
       )();
-      return `Restart Kernel and Run All${enabled ? ` ${noun}` : ''}…`;
+      return `重启核心并运行所有${enabled ? ` ${noun}` : ''}…`;
     },
     isEnabled: Private.delegateEnabled(
       app,
@@ -751,7 +748,7 @@ export function createTabsMenu(
   // Command to toggle between the current
   // tab and the last modified tab.
   commands.addCommand(CommandIDs.activatePreviouslyUsedTab, {
-    label: 'Activate Previously Used Tab',
+    label: '激活上次使用的标签',
     isEnabled: () => !!previousId,
     execute: () => commands.execute(CommandIDs.activateById, { id: previousId })
   });

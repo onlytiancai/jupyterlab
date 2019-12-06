@@ -52,7 +52,7 @@ function activate(
   const model = new LauncherModel();
 
   commands.addCommand(CommandIDs.create, {
-    label: 'New Launcher',
+    label: '新建启动器',
     execute: (args: JSONObject) => {
       const cwd = args['cwd'] ? String(args['cwd']) : '';
       const id = `launcher-${Private.id++}`;

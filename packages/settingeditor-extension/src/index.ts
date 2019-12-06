@@ -117,14 +117,14 @@ function activate(
       });
 
       editor.id = namespace;
-      editor.title.label = 'Settings';
+      editor.title.label = '设置';
       editor.title.iconClass = 'jp-SettingsIcon';
 
       let main = new MainAreaWidget({ content: editor });
       void tracker.add(main);
       shell.add(main);
     },
-    label: 'Advanced Settings Editor'
+    label: '编辑器高级设置'
   });
   palette.addItem({ category: 'Settings', command: CommandIDs.open });
 
@@ -133,14 +133,14 @@ function activate(
       tracker.currentWidget.content.revert();
     },
     iconClass: 'jp-MaterialIcon jp-UndoIcon',
-    label: 'Revert User Settings',
+    label: '撤销用户设置',
     isEnabled: () => tracker.currentWidget.content.canRevertRaw
   });
 
   commands.addCommand(CommandIDs.save, {
     execute: () => tracker.currentWidget.content.save(),
     iconClass: 'jp-MaterialIcon jp-SaveIcon',
-    label: 'Save User Settings',
+    label: '保存用户设置',
     isEnabled: () => tracker.currentWidget.content.canSaveRaw
   });
 

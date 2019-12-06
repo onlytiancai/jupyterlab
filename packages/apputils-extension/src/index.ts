@@ -262,7 +262,7 @@ const print: JupyterFrontEndPlugin<void> = {
   autoStart: true,
   activate: (app: JupyterFrontEnd) => {
     app.commands.addCommand(CommandIDs.print, {
-      label: 'Print...',
+      label: '打印...',
       isEnabled: () => {
         const widget = app.shell.currentWidget;
         return Printing.getPrintFunction(widget) !== null;

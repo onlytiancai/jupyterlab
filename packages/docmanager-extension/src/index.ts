@@ -380,7 +380,7 @@ function addCommands(
   }
 
   commands.addCommand(CommandIDs.deleteFile, {
-    label: () => `Delete ${fileType(shell.currentWidget, docManager)}`,
+    label: () => `删除${fileType(shell.currentWidget, docManager)}`,
     execute: args => {
       const path =
         typeof args['path'] === 'undefined' ? '' : (args['path'] as string);
@@ -447,12 +447,11 @@ function addCommands(
       });
     },
     icon: args => (args['icon'] as string) || '',
-    label: () => 'Open in New Browser Tab'
+    label: () => '新浏览器标签打开'
   });
 
   commands.addCommand(CommandIDs.reload, {
-    label: () =>
-      `Reload ${fileType(shell.currentWidget, docManager)} from Disk`,
+    label: () => `重新从硬盘加载${fileType(shell.currentWidget, docManager)}`,
     caption: 'Reload contents from disk',
     isEnabled,
     execute: () => {
@@ -465,7 +464,10 @@ function addCommands(
         title: `Reload ${type} from Disk`,
         body: `Are you sure you want to reload
           the ${type} from the disk?`,
-        buttons: [Dialog.cancelButton(), Dialog.warnButton({ label: 'Reload' })]
+        buttons: [
+          Dialog.cancelButton(),
+          Dialog.warnButton({ label: '重新加载' })
+        ]
       }).then(result => {
         if (result.button.accept && !context.isDisposed) {
           return context.revert();
@@ -475,8 +477,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.restoreCheckpoint, {
-    label: () =>
-      `Revert ${fileType(shell.currentWidget, docManager)} to Checkpoint`,
+    label: () => `撤销${fileType(shell.currentWidget, docManager)} 检查点`,
     caption: 'Revert contents to previous checkpoint',
     isEnabled,
     execute: () => {
@@ -496,10 +497,7 @@ function addCommands(
         return showDialog({
           title: `Revert ${type} to checkpoint`,
           body: new RevertConfirmWidget(lastCheckpoint, type),
-          buttons: [
-            Dialog.cancelButton(),
-            Dialog.warnButton({ label: 'Revert' })
-          ]
+          buttons: [Dialog.cancelButton(), Dialog.warnButton({ label: '撤销' })]
         }).then(result => {
           if (context.isDisposed) {
             return;
@@ -516,7 +514,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.save, {
-    label: () => `Save ${fileType(shell.currentWidget, docManager)}`,
+    label: () => `保存${fileType(shell.currentWidget, docManager)}`,
     caption: 'Save and create checkpoint',
     isEnabled: isWritable,
     execute: () => {
@@ -544,7 +542,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.saveAll, {
-    label: () => 'Save All',
+    label: () => '保存全部',
     caption: 'Save all open documents',
     isEnabled: () => {
       return some(
@@ -567,7 +565,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.saveAs, {
-    label: () => `Save ${fileType(shell.currentWidget, docManager)} As…`,
+    label: () => `保存 ${fileType(shell.currentWidget, docManager)} 为…`,
     caption: 'Save with new path',
     isEnabled,
     execute: () => {
@@ -579,7 +577,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.download, {
-    label: 'Download',
+    label: '下载',
     caption: 'Download the file to your computer',
     isEnabled,
     execute: () => {
@@ -591,7 +589,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.toggleAutosave, {
-    label: 'Autosave Documents',
+    label: '自动保存文档',
     isToggled: () => docManager.autosave,
     execute: () => {
       const value = !docManager.autosave;
@@ -663,7 +661,7 @@ function addLabCommands(
   };
 
   commands.addCommand(CommandIDs.clone, {
-    label: () => `New View for ${fileType(contextMenuWidget(), docManager)}`,
+    label: () => `新建${fileType(contextMenuWidget(), docManager)}视图`,
     isEnabled,
     execute: args => {
       const widget = contextMenuWidget();
@@ -682,7 +680,7 @@ function addLabCommands(
   });
 
   commands.addCommand(CommandIDs.rename, {
-    label: () => `Rename ${fileType(contextMenuWidget(), docManager)}…`,
+    label: () => `重命名${fileType(contextMenuWidget(), docManager)}…`,
     isEnabled,
     execute: () => {
       if (isEnabled()) {
@@ -693,7 +691,7 @@ function addLabCommands(
   });
 
   commands.addCommand(CommandIDs.showInFileBrowser, {
-    label: () => `Show in File Browser`,
+    label: () => `在文件浏览器中查看`,
     isEnabled,
     execute: async () => {
       let context = docManager.contextForWidget(contextMenuWidget());

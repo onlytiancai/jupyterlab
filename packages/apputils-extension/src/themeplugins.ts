@@ -80,7 +80,7 @@ export const themesPlugin: JupyterFrontEndPlugin<IThemeManager> = {
     commands.addCommand(CommandIDs.changeTheme, {
       label: args => {
         const theme = args['theme'] as string;
-        return args['isPalette'] ? `Use ${theme} Theme` : theme;
+        return args['isPalette'] ? `使用${theme}主题` : theme;
       },
       isToggled: args => args['theme'] === currentTheme,
       execute: args => {
@@ -93,18 +93,18 @@ export const themesPlugin: JupyterFrontEndPlugin<IThemeManager> = {
     });
 
     commands.addCommand(CommandIDs.themeScrollbars, {
-      label: 'Theme Scrollbars',
+      label: '主题滚动条',
       isToggled: () => manager.isToggledThemeScrollbars(),
       execute: () => manager.toggleThemeScrollbars()
     });
 
     commands.addCommand(CommandIDs.incrFontSize, {
-      label: args => `Increase ${args['label']} Font Size`,
+      label: args => `增加${args['label']}字号`,
       execute: args => manager.incrFontSize(args['key'] as string)
     });
 
     commands.addCommand(CommandIDs.decrFontSize, {
-      label: args => `Decrease ${args['label']} Font Size`,
+      label: args => `减小${args['label']}字号`,
       execute: args => manager.decrFontSize(args['key'] as string)
     });
 
@@ -137,7 +137,7 @@ export const themesPaletteMenuPlugin: JupyterFrontEndPlugin<void> = {
     // If we have a main menu, add the theme manager to the settings menu.
     if (mainMenu) {
       const themeMenu = new Menu({ commands });
-      themeMenu.title.label = 'JupyterLab Theme';
+      themeMenu.title.label = 'JupyterLab 主题';
       void app.restored.then(() => {
         const isPalette = false;
 

@@ -37,13 +37,13 @@ export class FileMenu extends JupyterLabMenu implements IFileMenu {
   constructor(options: Menu.IOptions) {
     super(options);
 
-    this.menu.title.label = 'File';
+    this.menu.title.label = '文件';
 
     this.quitEntry = false;
 
     // Create the "New" submenu.
     this.newMenu = new JupyterLabMenu(options, false);
-    this.newMenu.menu.title.label = 'New';
+    this.newMenu.menu.title.label = '新建';
     this.closeAndCleaners = new Set<IFileMenu.ICloseAndCleaner<Widget>>();
     this.consoleCreators = new Set<IFileMenu.IConsoleCreator<Widget>>();
   }

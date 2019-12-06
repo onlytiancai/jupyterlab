@@ -149,49 +149,49 @@ export function addCommands(app: JupyterFrontEnd, tracker: IImageTracker) {
 
   commands.addCommand('imageviewer:zoom-in', {
     execute: zoomIn,
-    label: 'Zoom In',
+    label: '放大',
     isEnabled
   });
 
   commands.addCommand('imageviewer:zoom-out', {
     execute: zoomOut,
-    label: 'Zoom Out',
+    label: '缩小',
     isEnabled
   });
 
   commands.addCommand('imageviewer:reset-image', {
     execute: resetImage,
-    label: 'Reset Image',
+    label: '重置图片',
     isEnabled
   });
 
   commands.addCommand('imageviewer:rotate-clockwise', {
     execute: rotateClockwise,
-    label: 'Rotate Clockwise',
+    label: '顺指针旋转',
     isEnabled
   });
 
   commands.addCommand('imageviewer:rotate-counterclockwise', {
     execute: rotateCounterclockwise,
-    label: 'Rotate Counterclockwise',
+    label: '逆时针旋转',
     isEnabled
   });
 
   commands.addCommand('imageviewer:flip-horizontal', {
     execute: flipHorizontal,
-    label: 'Flip image horizontally',
+    label: '水平翻转图像',
     isEnabled
   });
 
   commands.addCommand('imageviewer:flip-vertical', {
     execute: flipVertical,
-    label: 'Flip image vertically',
+    label: '垂直翻转图像',
     isEnabled
   });
 
   commands.addCommand('imageviewer:invert-colors', {
     execute: invertColors,
-    label: 'Invert Colors',
+    label: '反色',
     isEnabled
   });
 

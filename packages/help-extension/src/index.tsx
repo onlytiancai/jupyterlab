@@ -63,7 +63,7 @@ const HELP_CLASS = 'jp-Help';
 
 const RESOURCES = [
   {
-    text: 'JupyterLab Reference',
+    text: 'JupyterLab 参考手册',
     url: 'https://jupyterlab.readthedocs.io/en/stable/'
   },
   {
@@ -71,11 +71,11 @@ const RESOURCES = [
     url: 'https://jupyterlab.readthedocs.io/en/stable/getting_started/faq.html'
   },
   {
-    text: 'Jupyter Reference',
+    text: 'Jupyter 参考手册',
     url: 'https://jupyter.org/documentation'
   },
   {
-    text: 'Markdown Reference',
+    text: 'Markdown 参考手册',
     url: 'https://commonmark.org/help/'
   }
 ];
@@ -235,7 +235,7 @@ function activate(
         kernelIconUrl = baseUrl + kernelIconUrl.slice(index);
       }
       commands.addCommand(bannerCommand, {
-        label: `About the ${kernelName} Kernel`,
+        label: `关于 ${kernelName} Kernel`,
         isVisible: usesKernel,
         isEnabled: usesKernel,
         execute: () => {
@@ -286,7 +286,7 @@ function activate(
   });
 
   commands.addCommand(CommandIDs.about, {
-    label: `About ${app.name}`,
+    label: `关于${app.name}`,
     execute: () => {
       // Create the header of the about dialog
       let headerLogo = <div className="jp-About-header-logo" />;
@@ -376,7 +376,7 @@ function activate(
   });
 
   commands.addCommand(CommandIDs.launchClassic, {
-    label: 'Launch Classic Notebook',
+    label: '启动经典 Notebook',
     execute: () => {
       window.open(PageConfig.getBaseUrl() + 'tree');
     }

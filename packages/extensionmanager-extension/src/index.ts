@@ -81,7 +81,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
     });
 
     commands.addCommand(CommandIDs.toggle, {
-      label: 'Enable Extension Manager (experimental)',
+      label: '启用扩展管理器',
       execute: () => {
         if (registry) {
           void registry.set(plugin.id, 'enabled', !enabled);
@@ -128,8 +128,8 @@ namespace Private {
         'and some may introduce security risks. ' +
         'Do you want to continue?',
       buttons: [
-        Dialog.cancelButton({ label: 'Disable' }),
-        Dialog.warnButton({ label: 'Enable' })
+        Dialog.cancelButton({ label: '禁用' }),
+        Dialog.warnButton({ label: '启用' })
       ]
     }).then(result => {
       if (result.button.accept) {

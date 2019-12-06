@@ -127,7 +127,7 @@ const main: JupyterFrontEndPlugin<void> = {
             body: 'Build successfully completed, reload page?',
             buttons: [
               Dialog.cancelButton(),
-              Dialog.warnButton({ label: 'Reload' })
+              Dialog.warnButton({ label: '重新加载' })
             ]
           });
         })
@@ -164,7 +164,7 @@ const main: JupyterFrontEndPlugin<void> = {
         void showDialog({
           title: 'Build Recommended',
           body,
-          buttons: [Dialog.cancelButton(), Dialog.okButton({ label: 'Build' })]
+          buttons: [Dialog.cancelButton(), Dialog.okButton({ label: '编译' })]
         }).then(result => (result.button.accept ? build() : undefined));
       });
     }
@@ -404,7 +404,7 @@ const sidebar: JupyterFrontEndPlugin<void> = {
 
     // Add a command to switch a side panels's side
     app.commands.addCommand(CommandIDs.switchSidebar, {
-      label: 'Switch Sidebar Side',
+      label: '切换侧边栏',
       execute: () => {
         // First, try to find the correct panel based on the
         // application context menu click.
@@ -528,7 +528,7 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
   };
 
   commands.addCommand(CommandIDs.activateNextTab, {
-    label: 'Activate Next Tab',
+    label: '激活下一个标签',
     execute: () => {
       shell.activateNextTab();
     }
@@ -536,7 +536,7 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
   palette.addItem({ command: CommandIDs.activateNextTab, category });
 
   commands.addCommand(CommandIDs.activatePreviousTab, {
-    label: 'Activate Previous Tab',
+    label: '激活上一个标签',
     execute: () => {
       shell.activatePreviousTab();
     }
@@ -550,7 +550,7 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
     '#jp-main-dock-panel .p-DockPanel-tabBar.jp-Activity .p-TabBar-tab';
 
   commands.addCommand(CommandIDs.close, {
-    label: () => 'Close Tab',
+    label: () => '关闭标签',
     isEnabled: () =>
       !!shell.currentWidget && !!shell.currentWidget.title.closable,
     execute: () => {
@@ -567,7 +567,7 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
   });
 
   commands.addCommand(CommandIDs.closeAll, {
-    label: 'Close All Tabs',
+    label: '关闭所有标签',
     execute: () => {
       shell.closeAll();
     }
@@ -575,7 +575,7 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
   palette.addItem({ command: CommandIDs.closeAll, category });
 
   commands.addCommand(CommandIDs.closeOtherTabs, {
-    label: () => `Close All Other Tabs`,
+    label: () => `关闭所有其它标签`,
     isEnabled: () => {
       // Ensure there are at least two widgets.
       const iterator = shell.widgets('main');
@@ -601,7 +601,7 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
   });
 
   commands.addCommand(CommandIDs.closeRightTabs, {
-    label: () => `Close Tabs to Right`,
+    label: () => `关闭右侧所有标签`,
     isEnabled: () =>
       contextMenuWidget() && widgetsRightOf(contextMenuWidget()).length > 0,
     execute: () => {
@@ -620,7 +620,7 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
   });
 
   app.commands.addCommand(CommandIDs.toggleLeftArea, {
-    label: args => 'Show Left Sidebar',
+    label: args => '显示左侧边栏',
     execute: () => {
       if (shell.leftCollapsed) {
         shell.expandLeft();
@@ -637,7 +637,7 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
   palette.addItem({ command: CommandIDs.toggleLeftArea, category });
 
   app.commands.addCommand(CommandIDs.toggleRightArea, {
-    label: args => 'Show Right Sidebar',
+    label: args => '显示右侧边栏',
     execute: () => {
       if (shell.rightCollapsed) {
         shell.expandRight();
@@ -654,7 +654,7 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
   palette.addItem({ command: CommandIDs.toggleRightArea, category });
 
   app.commands.addCommand(CommandIDs.togglePresentationMode, {
-    label: args => 'Presentation Mode',
+    label: args => '演示模式',
     execute: () => {
       shell.presentationMode = !shell.presentationMode;
     },
@@ -679,7 +679,7 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
   });
 
   app.commands.addCommand(CommandIDs.toggleMode, {
-    label: 'Single-Document Mode',
+    label: '单文档模式',
     isToggled: () => shell.mode === 'single-document',
     execute: () => {
       const args =

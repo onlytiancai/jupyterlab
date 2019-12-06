@@ -66,7 +66,7 @@ function activateForeign(
   }
 
   commands.addCommand(toggleShowAllActivity, {
-    label: args => 'Show All Kernel Activity',
+    label: args => '显示所有活跃核心',
     execute: args => {
       let current = getCurrent(args);
       if (!current) {

@@ -106,7 +106,7 @@ function activateHTMLViewer(
   // Add a command to trust the active HTML document,
   // allowing script executions in its context.
   app.commands.addCommand(CommandIDs.trustHTML, {
-    label: 'Trust HTML File',
+    label: '信任HTML文件',
     isEnabled: () => !!tracker.currentWidget,
     isToggled: () => {
       const current = tracker.currentWidget;

@@ -243,9 +243,9 @@ function activateEditorCommands(
   const keyMapMenu = new Menu({ commands });
   const modeMenu = new Menu({ commands });
 
-  themeMenu.title.label = 'Text Editor Theme';
-  keyMapMenu.title.label = 'Text Editor Key Map';
-  modeMenu.title.label = 'Text Editor Syntax Highlighting';
+  themeMenu.title.label = '文本编辑器主题';
+  keyMapMenu.title.label = '文本编辑器热键映射';
+  modeMenu.title.label = '文本编辑器语法高亮';
 
   commands.addCommand(CommandIDs.changeTheme, {
     label: args => {

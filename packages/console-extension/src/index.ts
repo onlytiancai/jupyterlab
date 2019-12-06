@@ -324,14 +324,14 @@ async function activateConsole(
   commands.addCommand(command, {
     label: args => {
       if (args['isPalette']) {
-        return 'New Console';
+        return '新建控制台';
       } else if (args['isLauncher'] && args['kernelPreference']) {
         const kernelPreference = args[
           'kernelPreference'
         ] as IClientSession.IKernelPreference;
         return manager.specs.kernelspecs[kernelPreference.name].display_name;
       }
-      return 'Console';
+      return '控制台';
     },
     iconClass: args => (args['isPalette'] ? '' : 'jp-CodeConsoleIcon'),
     execute: args => {
@@ -354,7 +354,7 @@ async function activateConsole(
   }
 
   commands.addCommand(CommandIDs.clear, {
-    label: 'Clear Console Cells',
+    label: '清空控制台 Cell',
     execute: args => {
       let current = getCurrent(args);
       if (!current) {
@@ -366,7 +366,7 @@ async function activateConsole(
   });
 
   commands.addCommand(CommandIDs.runUnforced, {
-    label: 'Run Cell (unforced)',
+    label: '运行 Cell(非强制)',
     execute: args => {
       let current = getCurrent(args);
       if (!current) {
@@ -378,7 +378,7 @@ async function activateConsole(
   });
 
   commands.addCommand(CommandIDs.runForced, {
-    label: 'Run Cell (forced)',
+    label: '运行 Cell(强制)',
     execute: args => {
       let current = getCurrent(args);
       if (!current) {
@@ -390,7 +390,7 @@ async function activateConsole(
   });
 
   commands.addCommand(CommandIDs.linebreak, {
-    label: 'Insert Line Break',
+    label: '插入换行符',
     execute: args => {
       let current = getCurrent(args);
       if (!current) {
@@ -402,7 +402,7 @@ async function activateConsole(
   });
 
   commands.addCommand(CommandIDs.interrupt, {
-    label: 'Interrupt Kernel',
+    label: '中止核心',
     execute: args => {
       let current = getCurrent(args);
       if (!current) {
@@ -417,7 +417,7 @@ async function activateConsole(
   });
 
   commands.addCommand(CommandIDs.restart, {
-    label: 'Restart Kernel…',
+    label: '重启核心...',
     execute: args => {
       let current = getCurrent(args);
       if (!current) {
@@ -429,7 +429,7 @@ async function activateConsole(
   });
 
   commands.addCommand(CommandIDs.closeAndShutdown, {
-    label: 'Close and Shut Down…',
+    label: '关闭并停止…',
     execute: args => {
       const current = getCurrent(args);
       if (!current) {
@@ -474,7 +474,7 @@ async function activateConsole(
   });
 
   commands.addCommand(CommandIDs.changeKernel, {
-    label: 'Change Kernel…',
+    label: '切换核心...',
     execute: args => {
       let current = getCurrent(args);
       if (!current) {
@@ -595,7 +595,7 @@ async function activateConsole(
   });
 
   const executeMenu = new Menu({ commands });
-  executeMenu.title.label = 'Console Run Keystroke';
+  executeMenu.title.label = '控制台运行快捷键';
 
   ['terminal', 'notebook'].forEach(name =>
     executeMenu.addItem({

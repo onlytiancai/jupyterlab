@@ -73,7 +73,7 @@ const statusBar: JupyterFrontEndPlugin<IStatusBar> = {
     const command: string = 'statusbar:toggle';
 
     app.commands.addCommand(command, {
-      label: 'Show Status Bar',
+      label: '显示状态条',
       execute: (args: any) => {
         statusBar.setHidden(statusBar.isVisible);
         if (settingRegistry) {
